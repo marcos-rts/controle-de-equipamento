@@ -1,4 +1,4 @@
-# Sistema_controle_de_equipamentos
+# controle-de-equipamento
 
 Sistema baseado em CRUD em PHP para controle 
 
