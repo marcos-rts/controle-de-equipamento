@@ -315,8 +315,13 @@ if (!isset($_SESSION['UsuarioID'])) {
                 </tbody>
             </table>
         </div>
+                    
         <?php
         }
+    }
+}
+        }
+    }
         ?>
         <!-- fim config de nivel 5-->
 
