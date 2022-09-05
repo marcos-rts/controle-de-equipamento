@@ -29,6 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $entradaErro = null;
     $tecnicoErro = null;
     $statusErro = null;
+    $local2Erro = null;
     $equipErro = null;
     $chapaErro = null;
     $chamadoErro = null;
@@ -45,17 +46,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $entrada = $_POST['entrada'];
     $tecnico = $_POST['tecnico'];
     $status = $_POST['status'];
+    $local2 = $_POST['local2'];
     $equip = $_POST['equip'];
     $chapa = $_POST['chapa'];
     $chamado = $_POST['chamado'];
     $recebe = $_SESSION['UsuarioNome'];
     $solucao = $_POST['solucao'];
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 119c61a00f75ab206ddcb45b23e6e4c27850d977
     $modelo = $_POST['modelo'];
     $ram = $_POST['ram'];
     $processador = $_POST['processador'];
     $fonte = $_POST['fonte'];
     $bios = $_POST['bios'];
     $hd = $_POST['hd'];
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> b7d821aa26fbb4a0b6bd0d80c6f50d769152426b
+>>>>>>> 119c61a00f75ab206ddcb45b23e6e4c27850d977
 
     $validacao = true;
 
@@ -91,6 +102,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	} else {
 		$tecnico = "-";
 	}
+<<<<<<< HEAD
+    if (!empty($_POST['local2'])){
+		$local2 = $_POST['local2'];
+	} else {
+		$local2 = "Datacenter";
+	}
+=======
+>>>>>>> 119c61a00f75ab206ddcb45b23e6e4c27850d977
 	if (!empty($_POST['saida'])){
 		$saida = $_POST['saida'];
 	} else {
@@ -121,9 +140,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($validacao) {
         $pdo = Banco::conectar();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+<<<<<<< HEAD
+        $sql = "INSERT INTO maquina (nome, telefone, email, local, setor, entrada, saida, tecnico, status, equip, chapa, chamado, problema, solucao, recebe, modelo, ram, processador, fonte, bios, hd, local2) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        $q = $pdo->prepare($sql);
+        $q->execute(array($nome, $telefone, $email, $local, $setor, $entrada, $saida, $tecnico, $status, $equip, $chapa, $chamado, $problema, $solucao, $recebe, $modelo, $ram, $processador, $fonte, $bios, $hd, $local2));
+=======
         $sql = "INSERT INTO maquina (nome, telefone, email, local, setor, entrada, saida, tecnico, status, equip, chapa, chamado, problema, solucao, recebe, modelo, ram, processador, fonte, bios, hd) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         $q = $pdo->prepare($sql);
         $q->execute(array($nome, $telefone, $email, $local, $setor, $entrada, $saida, $tecnico, $status, $equip, $chapa, $chamado, $problema, $solucao, $recebe, $modelo, $ram, $processador, $fonte, $bios, $hd));
+>>>>>>> 119c61a00f75ab206ddcb45b23e6e4c27850d977
         Banco::desconectar();
         header("Location: index.php");
     }
@@ -143,41 +168,67 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-    <header>
+<header>
         <div class="container">
-            <nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-dark" id="ftco-navbar">
-                <div class="container">
-                    <a class="navbar-brand" href="../index.php">Sistema de Controle de Maquinas</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
-                        aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="fa fa-bars"></span>
-                        Menu
-                    </button>
-                    <div class="collapse navbar-collapse" id="ftco-nav">
-                        <ul class="navbar-nav ml-auto mr-md-3">
-                            <li class="nav-item active">
-                                <a href="index.php" class="nav-link">Pendentes</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="entregues.php" class="nav-link">Entregues</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../users/index.php" class="nav-link">Usuario</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../logout.php" class="nav-link">Logout</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">Configurações gerais</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="../index.php">Sistema de Controle de Maquinas</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false"
+                    aria-label="Alterna navegação">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+                    <ul class="navbar-nav ml-auto mr-md-3">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="../index.php">Home <span class="sr-only">(página atual)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <!--  <a class="nav-link" href="#">Link</a> -->
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Maquinas
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="../index.php">Pendentes</a>
+                                <a class="dropdown-item" href="../sistem/transferencia.php">Transferencia</a>
+                                <a class="dropdown-item" href="../sistem/entregues.php">Entregues</a>
+                                <a class="dropdown-item" href="../sistem/maquinas_livres.php">Livres</a>
+                                <a class="dropdown-item" href="#"></a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item disabled" href="#">Em Breve</a>
+                            </div>
+                        </li>
 
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <?php echo $_SESSION['UsuarioNome'] ?>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="../users/index.php">Informação</a>
+                                <a class="dropdown-item" href="../users/trocarsenha.php">Trocar Senha</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="../logout.php">Logout</a>
+                                <?php
+	  if ($_SESSION['UsuarioNivel'] == '5' || $_SESSION['UsuarioID'] == '7') {
+          ?>
+                                <a href="../private/config.php" class="dropdown-item">Configurações gerais</a>
+                                <?php
+          }
+          ?>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <!--  <a class="nav-link disabled" href="#">Desativado</a> -->
+                        </li>
+                    </ul>
+                </div>
             </nav>
-            <!-- END nav -->
         </div>
     </header>
+
     <div class="container">
         <div clas="span10 offset1">
             <div class="card">
@@ -973,9 +1024,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             <option value="Pronta"> Pronta </option>
                                             <option value="Entregue"> Entregue </option>
                                             <option value="Baixa"> Baixa </option>
-                                       <!-- <option value=""> Transferencia </option> -->
+                                       <!-- <option value="Transferencia"> Transferencia </option> -->
                                             <option value="Emprestado"> Emprestado </option>
+<<<<<<< HEAD
 					    <option value="CTI"> CTI </option>
+=======
+					    <option value="Livre"> Livre </option>
+>>>>>>> 119c61a00f75ab206ddcb45b23e6e4c27850d977
                                         </select>
                                         <?php if (!empty($statusErro)) : ?>
                                         <span class="text-danger"><?php echo $statusErro; ?></span>
@@ -1017,7 +1072,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 </div>
                             </div>
 
-                            <div class="form-group col-md-2">
+                            <!-- <div class="form-group col-md-2">
                                 <div class="control-group  <?php echo !empty($chamadoErro) ? 'error ' : ''; ?>">
                                     <label class="control-label">Chamado</label>
                                     <div class="controls">
@@ -1025,6 +1080,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             value="<?php echo !empty($chamado) ? $chamado : ''; ?>">
                                         <?php if (!empty($chamadoErro)) : ?>
                                         <span class="text-danger"><?php echo $chamadoErro; ?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div> -->
+
+                            <div class="form-group col-md-2">
+                                <div class="control-goup <?php !empty($local2Erro) ? '$local2Erro ' : ''; ?>">
+                                    <label class="control-label">Armazenamento</label>
+                                    <div class="controls">
+                                        <select class="form-control" name="local2" placeholder="Local armazenado"
+                                            value="<?php echo !empty($local2) ? $local2 : ''; ?>">
+                                            <option value="000"></option>
+                                            <option value="Datacenter">Datacenter</option>
+                                            <option value="Arquivo">Arquivo</option>
+                                            <option value="Almoxarifado">Almoxarifado</option>
+                                        </select>
+                                        <?php if (!empty($local2Erro)) : ?>
+                                        <span class="text-danger"><?php echo $local2Erro; ?></span>
                                         <?php endif; ?>
                                     </div>
                                 </div>

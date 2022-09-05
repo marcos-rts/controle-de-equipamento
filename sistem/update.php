@@ -2,9 +2,7 @@
 
 require 'banco.php';
 //Iniciando a sessão:
-if (session_status() !== PHP_SESSION_ACTIVE) {
-  session_start();
-}
+if (session_status() !== PHP_SESSION_ACTIVE) {session_start();}
 //Acessando valores dentro de uma sessão:
 //echo $_SESSION['UsuarioID'];
 //echo $_SESSION['UsuarioNome'];
@@ -31,6 +29,7 @@ if (!empty($_POST)) {
     $entradaErro = null;
     $tecnicoErro = null;
     $statusErro = null;
+    $local2Erro = null;
     $equipErro = null;
     $chapaErro = null;
     $chamadoErro = null;
@@ -44,6 +43,7 @@ if (!empty($_POST)) {
     $email = $_POST['email'];
     $problema = $_POST['problema'];
     $local = $_POST['local'];
+    $local2 = $_POST['local2'];
     $setor = $_POST['setor'];
     $saida = $_POST['saida'];
     $entrada = $_POST['entrada'];
@@ -105,6 +105,9 @@ if (!empty($_POST)) {
     if ($validacao) {
         $pdo = Banco::conectar();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $sql = "UPDATE maquina  set nome = ?, telefone = ?, email = ?, local = ?, setor = ?, entrada = ?, saida = ?, tecnico = ?, status = ?, equip = ?, chapa = ?, chamado = ?, problema = ?, solucao = ?, modelo = ?, local2 = ? WHERE id = ?";
+        $q = $pdo->prepare($sql);
+        $q->execute(array($nome, $telefone, $email, $local, $setor, $entrada, $saida, $tecnico, $status, $equip, $chapa, $chamado, $problema, $solucao, $modelo, $local2, $id));
         $sql = "UPDATE maquina  set nome = ?, telefone = ?, email = ?, local = ?, setor = ?, entrada = ?, saida = ?, tecnico = ?, status = ?, equip = ?, chapa = ?, chamado = ?, problema = ?, solucao = ?, modelo = ? WHERE id = ?";
         $q = $pdo->prepare($sql);
         $q->execute(array($nome, $telefone, $email, $local, $setor, $entrada, $saida, $tecnico, $status, $equip, $chapa, $chamado, $problema, $solucao, $modelo, $id));
@@ -125,6 +128,7 @@ if (!empty($_POST)) {
     $local = $data['local'];
     $setor = $data['setor'];
     $saida = $data['saida'];
+    $local2 = $data['local2'];
     $entrada = $data['entrada'];
     $tecnico = $data['tecnico'];
     $status = $data['status'];
@@ -152,6 +156,69 @@ if (!empty($_POST)) {
     <title>Atualizar Contato</title>
 </head>
 
+
+<body>    
+    <header>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="../index.php">Sistema de Controle de Maquinas</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false"
+                    aria-label="Alterna navegação">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+                    <ul class="navbar-nav ml-auto mr-md-3">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="../index.php">Home <span class="sr-only">(página atual)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <!--  <a class="nav-link" href="#">Link</a> -->
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Maquinas
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="../index.php">Pendentes</a>
+                                <a class="dropdown-item" href="../sistem/transferencia.php">Transferencia</a>
+                                <a class="dropdown-item" href="../sistem/entregues.php">Entregues</a>
+                                <a class="dropdown-item" href="../sistem/maquinas_livres.php">Livres</a>
+                                <a class="dropdown-item" href="#"></a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item disabled" href="#">Em Breve</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <?php echo $_SESSION['UsuarioNome'] ?>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="../users/index.php">Informação</a>
+                                <a class="dropdown-item" href="../users/trocarsenha.php">Trocar Senha</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="../logout.php">Logout</a>
+                                <?php
+	  if ($_SESSION['UsuarioNivel'] == '5' || $_SESSION['UsuarioID'] == '7') {
+          ?>
+                                <a href="../private/config.php" class="dropdown-item">Configurações gerais</a>
+                                <?php
+          }
+          ?>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <!--  <a class="nav-link disabled" href="#">Desativado</a> -->
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+=======
 <body>
 <header>
 <div class="container">
@@ -209,6 +276,7 @@ if (!empty($_POST)) {
 </nav>
 </div>
 </header>
+>>>>>>> 119c61a00f75ab206ddcb45b23e6e4c27850d977
 <br>
     <div class="container">
 
@@ -482,7 +550,11 @@ if (!empty($_POST)) {
                                             <option value="Baixa"> Baixa </option>
                                             <option value="Transferencia"> Transferencia </option>
                                             <option value="Arquivado"> Arquivado </option>
-					    <option value="CTI"> CTI </option>
+<<<<<<< HEAD
+					                        <option value="CTI"> CTI </option>
+=======
+					    <option value="Livre"> Livre </option>
+>>>>>>> 119c61a00f75ab206ddcb45b23e6e4c27850d977
                                             <?php
                                             }
                                             ?>
@@ -496,7 +568,11 @@ if (!empty($_POST)) {
                                             <option value="Baixa"> Baixa </option>
                                             <option value="Transferencia"> Transferencia </option>
                                             <option value="Arquivado"> Arquivado </option>
-					    <option value="CTI"> CTI </option>
+<<<<<<< HEAD
+					                        <option value="CTI"> CTI </option>
+=======
+					    <option value="Livre"> Livre </option>
+>>>>>>> 119c61a00f75ab206ddcb45b23e6e4c27850d977
                                             <?php
                                             }
                                             ?>
@@ -510,7 +586,11 @@ if (!empty($_POST)) {
                                             <option value="Baixa"> Baixa </option>
                                             <option value="Transferencia"> Transferencia </option>
                                             <option value="Arquivado"> Arquivado </option>
-					    <option value="CTI"> CTI </option>
+<<<<<<< HEAD
+					                        <option value="CTI"> CTI </option>
+=======
+					    <option value="Livre"> Livre </option>
+>>>>>>> 119c61a00f75ab206ddcb45b23e6e4c27850d977
                                             <?php
                                             }
                                             ?>
@@ -524,7 +604,11 @@ if (!empty($_POST)) {
                                             <option value="Baixa"> Baixa </option>
                                             <option value="Transferencia"> Transferencia </option>
                                             <option value="Emprestado"> Emprestado </option>
- 					    <option value="CTI"> CTI </option>
+<<<<<<< HEAD
+ 					                        <option value="CTI"> CTI </option>
+=======
+ 					    <option value="Livre"> Livre </option>
+>>>>>>> 119c61a00f75ab206ddcb45b23e6e4c27850d977
                                             <?php
                                             }
                                             ?>
@@ -538,7 +622,11 @@ if (!empty($_POST)) {
                                             <option selected value="Baixa"> Baixa </option>
                                             <option value="Transferencia"> Transferencia </option>
                                             <option value="Arquivado"> Arquivado </option>
-					    <option value="CTI"> CTI </option>
+<<<<<<< HEAD
+					                        <option value="CTI"> CTI </option>
+=======
+					    <option value="Livre"> Livre </option>
+>>>>>>> 119c61a00f75ab206ddcb45b23e6e4c27850d977
                                             <?php
                                             }
                                             ?>
@@ -552,7 +640,11 @@ if (!empty($_POST)) {
                                             <option value="Baixa"> Baixa </option>
                                             <option selected value="Transferencia"> Transferencia </option>
                                             <option value="Arquivado"> Arquivado </option>
-       					    <option value="CTI"> CTI </option>
+<<<<<<< HEAD
+       					                    <option value="CTI"> CTI </option>
+=======
+       					    <option value="Livre"> Livre </option>
+>>>>>>> 119c61a00f75ab206ddcb45b23e6e4c27850d977
                                             <?php
                                             }
                                             ?>
@@ -566,12 +658,20 @@ if (!empty($_POST)) {
                                             <option value="Baixa"> Baixa </option>
                                             <option value="Transferencia"> Transferencia </option>
                                             <option selected value="Arquivado"> Arquivado </option>
-					    <option value="CTI"> CTI </option>
+<<<<<<< HEAD
+					                        <option value="CTI"> CTI </option>
+=======
+					    <option value="Livre"> Livre </option>
+>>>>>>> 119c61a00f75ab206ddcb45b23e6e4c27850d977
                                             <?php
                                             }
                                             ?>
                                             <?php
+<<<<<<< HEAD
                                             if ($status == "CTI") {
+=======
+                                            if ($status == "Livre") {
+>>>>>>> 119c61a00f75ab206ddcb45b23e6e4c27850d977
                                             ?>
                                             <option value="Em Aberto"> Não mexido </option>
                                             <option value="Em Manutenção"> Sendo Mexido </option>
@@ -580,7 +680,11 @@ if (!empty($_POST)) {
                                             <option value="Baixa"> Baixa </option>
                                             <option value="Transferencia"> Transferencia </option>
                                             <option value="Arquivado"> Arquivado </option>
-					    <option selected value="CTI"> CTI </option>
+<<<<<<< HEAD
+					                        <option selected value="CTI"> CTI </option>
+=======
+					    <option selected value="Livre"> Livre </option>
+>>>>>>> 119c61a00f75ab206ddcb45b23e6e4c27850d977
                                             <?php
                                             }
                                             ?>
@@ -595,7 +699,11 @@ if (!empty($_POST)) {
                                             <option value="Baixa"> Baixa </option>
                                             <option value="Transferencia"> Transferencia </option>
                                             <option value="Arquivado"> Arquivado </option>
-					    <option value="CTI"> CTI </option>
+<<<<<<< HEAD
+					                        <option value="CTI"> CTI </option>
+=======
+					    <option value="Livre"> Livre </option>
+>>>>>>> 119c61a00f75ab206ddcb45b23e6e4c27850d977
 
                                             <?php
                                             }
@@ -611,7 +719,11 @@ if (!empty($_POST)) {
                                             <option value="Baixa"> Baixa </option>
                                             <option value="Transferencia"> Transferencia </option>
                                             <option value="Arquivado"> Arquivado </option>
-					    <option value="CTI"> CTI </option>
+<<<<<<< HEAD
+					                        <option value="CTI"> CTI </option>
+=======
+					    <option value="Livre"> Livre </option>
+>>>>>>> 119c61a00f75ab206ddcb45b23e6e4c27850d977
 
                                             <?php
                                             }
@@ -708,13 +820,60 @@ if (!empty($_POST)) {
                             </div>
 
                             <div class="form-group col-md-2">
-                                <div class="control-group  <?php echo !empty($chamadoErro) ? 'error ' : ''; ?>">
-                                    <label class="control-label">Chamado</label>
+                                <div class="control-goup <?php !empty($local2Erro) ? '$local2Erro ' : ''; ?>">
+                                    <label class="control-label">Armazenamento</label>
                                     <div class="controls">
-                                        <input size="50" class="form-control" name="chamado" type="text"
-                                            value="<?php echo !empty($chamado) ? $chamado : ''; ?>">
-                                        <?php if (!empty($chamadoErro)) : ?>
-                                        <span class="text-danger"><?php echo $chamadoErro; ?></span>
+                                        <select class="form-control" name="local2" placeholder="local2"
+                                            value="<?php echo !empty($local2) ? $local2 : ''; ?>">
+                                            <option value="000"></option>
+                                            <?php
+                                            if ($local2 == "Datacenter") {
+                                            ?>
+                                            <option selected value="Datacenter">Datacenter</option>
+                                            <option value="Arquivo">Arquivo</option>
+                                            <option value="Almoxarifado">Almoxarifado</option>
+                                            <?php
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($local2 == "Arquivo") {
+                                            ?>
+                                            <option value="Datacenter">Datacenter</option>
+                                            <option selected value="Arquivo">Arquivo</option>
+                                            <option value="Almoxarifado">Almoxarifado</option>
+                                            <?php
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($local2 == "Almoxarifado") {
+                                            ?>
+                                            <option value="Datacenter">Datacenter</option>
+                                            <option value="Arquivo">Arquivo</option>
+                                            <option selected value="Almoxarifado">Almoxarifado</option>
+                                            <?php
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($local2 == "") {
+                                            ?>
+                                            <option value="Datacenter">Datacenter</option>
+                                            <option value="Arquivo">Arquivo</option>
+                                            <option value="Almoxarifado">Almoxarifado</option>
+                                            <?php
+                                            }
+                                            ?>
+                                            <?php
+                                            if ($local2 == "000") {
+                                            ?>
+                                            <option value="Datacenter">Datacenter</option>
+                                            <option value="Arquivo">Arquivo</option>
+                                            <option value="Almoxarifado">Almoxarifado</option>
+                                            <?php
+                                            }
+                                            ?>
+                                        </select>
+                                        <?php if (!empty($local2Erro)) : ?>
+                                        <span class="text-danger"><?php echo $local2Erro; ?></span>
                                         <?php endif; ?>
                                     </div>
                                 </div>

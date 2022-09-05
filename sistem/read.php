@@ -176,11 +176,20 @@ if (null == $id) {
                             </div>
                         </div>
 
-                        <div class="form-group col-md-2">
+                        <!-- <div class="form-group col-md-2">
                             <label for="chamado">Chamado</label>
                             <div class="controls form-control disabled">
                                 <label class="carousel-inner">
                                     <?php echo $data['chamado']; ?>
+                                </label>
+                            </div>
+                        </div> -->
+
+                        <div class="form-group col-md-2">
+                            <label for="Local">Armazenamento</label>
+                            <div class="controls form-control disabled">
+                                <label class="carousel-inner">
+                                    <?php echo $data['local2']; ?>
                                 </label>
                             </div>
                         </div>

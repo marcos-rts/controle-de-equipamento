@@ -119,6 +119,8 @@ if (!isset($_SESSION['UsuarioID'])) {
 
                         foreach ($pdo->query($sql) as $row) {
                             if ($row['status'] == 'CTI') {
+
+                            if ($row['status'] == 'Livre') {
                                 echo '<tr>';
                                 echo '<th scope="row">' . $row['id'] . '</th>';
                                 echo '<td>' . $row['local'] . '</td>';
@@ -171,6 +173,8 @@ if (!isset($_SESSION['UsuarioID'])) {
 
                         foreach ($pdo->query($sql) as $row) {
                             if ($row['status'] == 'CTI') {
+
+                            if ($row['status'] == 'Livre') {
                                 echo '<tr>';
                                 echo '<th scope="row">' . $row['id'] . '</th>';
                                 echo '<td>' . $row['local'] . '</td>';
@@ -226,6 +230,8 @@ if (!isset($_SESSION['UsuarioID'])) {
 
                         foreach ($pdo->query($sql) as $row) {
                             if ($row['status'] == 'CTI') {
+
+                            if ($row['status'] == 'Livre') {
                                 echo '<tr>';
                                 echo '<th scope="row">' . $row['id'] . '</th>';
                                 echo '<td>' . $row['local'] . '</td>';
@@ -282,6 +288,8 @@ if (!isset($_SESSION['UsuarioID'])) {
 
                         foreach ($pdo->query($sql) as $row) {
                             if ($row['status'] == 'CTI') {
+
+                            if ($row['status'] == 'Livre') {
                                 echo '<tr>';
                                 echo '<th scope="row">' . $row['id'] . '</th>';
                                 echo '<td>' . $row['local'] . '</td>';
