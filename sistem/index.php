@@ -83,121 +83,9 @@ if (!isset($_SESSION['UsuarioID'])) {
 </div>
 </header>
 
-<!--
-    <header>
-        <div class="container">
-<<<<<<< HEAD
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="../index.php">Sistema de Controle de Maquinas</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false"
-                    aria-label="Alterna navegação">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
-                    <ul class="navbar-nav ml-auto mr-md-3">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="../index.php">Home <span class="sr-only">(página atual)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <!--  <a class="nav-link" href="#">Link</a> -->
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Maquinas
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="../index.php">Pendentes</a>
-                                <a class="dropdown-item" href="../sistem/transferencia.php">Transferencia</a>
-                                <a class="dropdown-item" href="../sistem/entregues.php">Entregues</a>
-                                <a class="dropdown-item" href="../sistem/maquinas_livres.php">Livres</a>
-                                <a class="dropdown-item" href="#"></a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item disabled" href="#">Em Breve</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <?php echo $_SESSION['UsuarioNome'] ?>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="../users/index.php">Informação</a>
-                                <a class="dropdown-item" href="../users/trocarsenha.php">Trocar Senha</a>
-                                <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="../logout.php">Logout</a>
-                                    <?php
-	                                    if ($_SESSION['UsuarioNivel'] == '5' || $_SESSION['UsuarioID'] == '7') {
-                                    ?>
-                                    <a href="../private/config.php" class="dropdown-item">Configurações gerais</a>
-                                    <?php
-                                        }
-                                    ?>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <!--  <a class="nav-link disabled" href="#">Desativado</a> -->
-                        </li>
-                    </ul>
-=======
-            <nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-dark" id="ftco-navbar">
-                <div class="container">
-                    <a class="navbar-brand" href="../index.php">Sistema de Controle de Maquinas</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
-                        aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="fa fa-bars"></span>
-                        Menu
-                    </button>
-                    <div class="collapse navbar-collapse" id="ftco-nav">
-                        <ul class="navbar-nav ml-auto mr-md-3">
-                            <li class="nav-item active">
-                                <a href="index.php" class="nav-link">Pendentes</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="entregues.php" class="nav-link">Entregues</a>
-                            </li>
-			   <li class="nav-item">
-				<a href="maquinas_livres.php" class="nav-link">Maq. Livres</a>
-			    </li>
-                            <li class="nav-item">
-                                <a href="../users/index.php" class="nav-link">Usuario</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../logout.php" class="nav-link">Logout</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../users/trocarsenha.php" class="nav-link">Trocar senha</a>
-                            </li>
-
-                            <?php
-                            if ($_SESSION['UsuarioNivel'] == '5' || $_SESSION['UsuarioID'] == '7') {
-                            ?>
-                            <li class="nav-item">
-                                <a href="../private/config.php" class="nav-link">Configurações gerais</a>
-                            </li>
-                            <?php
-                            }
-                            ?>
-
-
-                        </ul>
-                    </div>
->>>>>>> 119c61a00f75ab206ddcb45b23e6e4c27850d977
-                </div>
-            </nav>
-        </div>
-    </header>
-
-<<<<<<< HEAD
-
     <!-- END nav -->
     <div class="container">
         </br>
-=======
-    <div class="container">
-       </br>
->>>>>>> 119c61a00f75ab206ddcb45b23e6e4c27850d977
         <!-- config de nivel 1 -->
         <?php
         if ($_SESSION['UsuarioNivel'] == '1') {
@@ -229,11 +117,7 @@ if (!isset($_SESSION['UsuarioID'])) {
                         $sql = 'SELECT * FROM maquina ORDER BY id DESC';
 
                         foreach ($pdo->query($sql) as $row) {
-<<<<<<< HEAD
                             if ($row['status'] != 'Entregue' || $row['status'] != 'CTI' || $row['status'] != 'Transferencia' ) {
-=======
-                            if ($row['status'] != 'Entregue' || $row['status'] != 'Livre' || $row['status'] != 'Transferencia' ) {
->>>>>>> 119c61a00f75ab206ddcb45b23e6e4c27850d977
                                 echo '<tr>';
                                 echo '<th scope="row">' . $row['id'] . '</th>';
                                 echo '<td>' . $row['local'] . '</td>';
@@ -291,7 +175,6 @@ if (!isset($_SESSION['UsuarioID'])) {
 
                         foreach ($pdo->query($sql) as $row) {
                             if ($row['status'] != 'Entregue') {
-<<<<<<< HEAD
                                 if ($row['status'] != 'CTI' ) {
 			                        if ($row['status'] != 'Transferencia'){
 			                            if ($row['status'] != 'Arquivado'){
@@ -315,31 +198,6 @@ if (!isset($_SESSION['UsuarioID'])) {
 			                        }
 			                    }
 			                }
-=======
-                            if ($row['status'] != 'Livre' ) {
-			    if ($row['status'] != 'Transferencia'){
-			    if ($row['status'] != 'Arquivado'){
-                                echo '<tr>';
-                                echo '<th scope="row">' . $row['id'] . '</th>';
-                                echo '<td>' . $row['local'] . '</td>';
-                                echo '<td>' . $row['setor'] . '</td>';
-                                echo '<td width=150>' . $row['entrada'] . '</td>';
-				echo '<td>' . $row['status'] . '</td>';
-                                echo '<td>' . $row['chapa'] . '</td>';
-                                echo '<td>' . $row['chamado'] . '-' . $row['id'] .  '</td>';
-                                echo '<td width=265>';
-                                echo '<a class="btn btn-primary" href="read.php?id=' . $row['id'] . '">Info</a>';
-                                echo ' ';
-                                echo '<a class="btn btn-warning" href="update.php?id=' . $row['id'] . '">Atualizar</a>';
-                                echo ' ';
-                                echo '<a class="btn btn-dark" href="imprimir.php?id=' . $row['id'] . '">Imprimir</a>';
-                                echo '</td>';
-                                echo '</tr>';
-                            }
-			}
-			}
-			}
->>>>>>> 119c61a00f75ab206ddcb45b23e6e4c27850d977
                         }
                         Banco::desconectar();
                         ?>
@@ -383,11 +241,7 @@ if (!isset($_SESSION['UsuarioID'])) {
 
                         foreach ($pdo->query($sql) as $row) {
                             if ($row['status'] != 'Entregue') {
-<<<<<<< HEAD
                             if ($row['status'] != 'CTI') {
-=======
-                            if ($row['status'] != 'Livre') {
->>>>>>> 119c61a00f75ab206ddcb45b23e6e4c27850d977
 			    if ($row['status'] != 'Transferencia'){
 			    if ($row['status'] != 'Arquivado'){
                                 echo '<tr>';
@@ -432,11 +286,8 @@ if (!isset($_SESSION['UsuarioID'])) {
 
     <footer>
         <div class="container">
-<<<<<<< HEAD
             <span class="badge badge-secondary">v 2.0 &copy; 2021 - Marcos A. R. T. dos Santos</span>
-=======
-            <span class="badge badge-secondary">v 1.2.0 &copy; 2021 - Marcos A. R. T. dos Santos</span>
->>>>>>> 119c61a00f75ab206ddcb45b23e6e4c27850d977
+
 
 
         </div>

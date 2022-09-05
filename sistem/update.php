@@ -550,11 +550,8 @@ if (!empty($_POST)) {
                                             <option value="Baixa"> Baixa </option>
                                             <option value="Transferencia"> Transferencia </option>
                                             <option value="Arquivado"> Arquivado </option>
-<<<<<<< HEAD
 					                        <option value="CTI"> CTI </option>
-=======
-					    <option value="Livre"> Livre </option>
->>>>>>> 119c61a00f75ab206ddcb45b23e6e4c27850d977
+
                                             <?php
                                             }
                                             ?>
@@ -568,11 +565,8 @@ if (!empty($_POST)) {
                                             <option value="Baixa"> Baixa </option>
                                             <option value="Transferencia"> Transferencia </option>
                                             <option value="Arquivado"> Arquivado </option>
-<<<<<<< HEAD
 					                        <option value="CTI"> CTI </option>
-=======
-					    <option value="Livre"> Livre </option>
->>>>>>> 119c61a00f75ab206ddcb45b23e6e4c27850d977
+
                                             <?php
                                             }
                                             ?>
@@ -586,11 +580,8 @@ if (!empty($_POST)) {
                                             <option value="Baixa"> Baixa </option>
                                             <option value="Transferencia"> Transferencia </option>
                                             <option value="Arquivado"> Arquivado </option>
-<<<<<<< HEAD
 					                        <option value="CTI"> CTI </option>
-=======
-					    <option value="Livre"> Livre </option>
->>>>>>> 119c61a00f75ab206ddcb45b23e6e4c27850d977
+
                                             <?php
                                             }
                                             ?>
@@ -604,11 +595,8 @@ if (!empty($_POST)) {
                                             <option value="Baixa"> Baixa </option>
                                             <option value="Transferencia"> Transferencia </option>
                                             <option value="Emprestado"> Emprestado </option>
-<<<<<<< HEAD
  					                        <option value="CTI"> CTI </option>
-=======
- 					    <option value="Livre"> Livre </option>
->>>>>>> 119c61a00f75ab206ddcb45b23e6e4c27850d977
+
                                             <?php
                                             }
                                             ?>
@@ -622,11 +610,8 @@ if (!empty($_POST)) {
                                             <option selected value="Baixa"> Baixa </option>
                                             <option value="Transferencia"> Transferencia </option>
                                             <option value="Arquivado"> Arquivado </option>
-<<<<<<< HEAD
 					                        <option value="CTI"> CTI </option>
-=======
-					    <option value="Livre"> Livre </option>
->>>>>>> 119c61a00f75ab206ddcb45b23e6e4c27850d977
+
                                             <?php
                                             }
                                             ?>
@@ -640,11 +625,8 @@ if (!empty($_POST)) {
                                             <option value="Baixa"> Baixa </option>
                                             <option selected value="Transferencia"> Transferencia </option>
                                             <option value="Arquivado"> Arquivado </option>
-<<<<<<< HEAD
        					                    <option value="CTI"> CTI </option>
-=======
-       					    <option value="Livre"> Livre </option>
->>>>>>> 119c61a00f75ab206ddcb45b23e6e4c27850d977
+
                                             <?php
                                             }
                                             ?>
@@ -658,20 +640,14 @@ if (!empty($_POST)) {
                                             <option value="Baixa"> Baixa </option>
                                             <option value="Transferencia"> Transferencia </option>
                                             <option selected value="Arquivado"> Arquivado </option>
-<<<<<<< HEAD
 					                        <option value="CTI"> CTI </option>
-=======
-					    <option value="Livre"> Livre </option>
->>>>>>> 119c61a00f75ab206ddcb45b23e6e4c27850d977
+
                                             <?php
                                             }
                                             ?>
                                             <?php
-<<<<<<< HEAD
                                             if ($status == "CTI") {
-=======
-                                            if ($status == "Livre") {
->>>>>>> 119c61a00f75ab206ddcb45b23e6e4c27850d977
+
                                             ?>
                                             <option value="Em Aberto"> Não mexido </option>
                                             <option value="Em Manutenção"> Sendo Mexido </option>
@@ -680,11 +656,8 @@ if (!empty($_POST)) {
                                             <option value="Baixa"> Baixa </option>
                                             <option value="Transferencia"> Transferencia </option>
                                             <option value="Arquivado"> Arquivado </option>
-<<<<<<< HEAD
 					                        <option selected value="CTI"> CTI </option>
-=======
-					    <option selected value="Livre"> Livre </option>
->>>>>>> 119c61a00f75ab206ddcb45b23e6e4c27850d977
+
                                             <?php
                                             }
                                             ?>
@@ -699,11 +672,8 @@ if (!empty($_POST)) {
                                             <option value="Baixa"> Baixa </option>
                                             <option value="Transferencia"> Transferencia </option>
                                             <option value="Arquivado"> Arquivado </option>
-<<<<<<< HEAD
 					                        <option value="CTI"> CTI </option>
-=======
-					    <option value="Livre"> Livre </option>
->>>>>>> 119c61a00f75ab206ddcb45b23e6e4c27850d977
+
 
                                             <?php
                                             }
@@ -719,11 +689,7 @@ if (!empty($_POST)) {
                                             <option value="Baixa"> Baixa </option>
                                             <option value="Transferencia"> Transferencia </option>
                                             <option value="Arquivado"> Arquivado </option>
-<<<<<<< HEAD
 					                        <option value="CTI"> CTI </option>
-=======
-					    <option value="Livre"> Livre </option>
->>>>>>> 119c61a00f75ab206ddcb45b23e6e4c27850d977
 
                                             <?php
                                             }

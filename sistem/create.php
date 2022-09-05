@@ -52,21 +52,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $chamado = $_POST['chamado'];
     $recebe = $_SESSION['UsuarioNome'];
     $solucao = $_POST['solucao'];
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 119c61a00f75ab206ddcb45b23e6e4c27850d977
     $modelo = $_POST['modelo'];
     $ram = $_POST['ram'];
     $processador = $_POST['processador'];
     $fonte = $_POST['fonte'];
     $bios = $_POST['bios'];
     $hd = $_POST['hd'];
-<<<<<<< HEAD
-=======
-=======
->>>>>>> b7d821aa26fbb4a0b6bd0d80c6f50d769152426b
->>>>>>> 119c61a00f75ab206ddcb45b23e6e4c27850d977
 
     $validacao = true;
 
@@ -102,14 +93,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	} else {
 		$tecnico = "-";
 	}
-<<<<<<< HEAD
     if (!empty($_POST['local2'])){
 		$local2 = $_POST['local2'];
 	} else {
 		$local2 = "Datacenter";
 	}
-=======
->>>>>>> 119c61a00f75ab206ddcb45b23e6e4c27850d977
 	if (!empty($_POST['saida'])){
 		$saida = $_POST['saida'];
 	} else {
@@ -140,15 +128,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($validacao) {
         $pdo = Banco::conectar();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-<<<<<<< HEAD
         $sql = "INSERT INTO maquina (nome, telefone, email, local, setor, entrada, saida, tecnico, status, equip, chapa, chamado, problema, solucao, recebe, modelo, ram, processador, fonte, bios, hd, local2) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         $q = $pdo->prepare($sql);
         $q->execute(array($nome, $telefone, $email, $local, $setor, $entrada, $saida, $tecnico, $status, $equip, $chapa, $chamado, $problema, $solucao, $recebe, $modelo, $ram, $processador, $fonte, $bios, $hd, $local2));
-=======
-        $sql = "INSERT INTO maquina (nome, telefone, email, local, setor, entrada, saida, tecnico, status, equip, chapa, chamado, problema, solucao, recebe, modelo, ram, processador, fonte, bios, hd) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-        $q = $pdo->prepare($sql);
-        $q->execute(array($nome, $telefone, $email, $local, $setor, $entrada, $saida, $tecnico, $status, $equip, $chapa, $chamado, $problema, $solucao, $recebe, $modelo, $ram, $processador, $fonte, $bios, $hd));
->>>>>>> 119c61a00f75ab206ddcb45b23e6e4c27850d977
         Banco::desconectar();
         header("Location: index.php");
     }
@@ -1026,11 +1008,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             <option value="Baixa"> Baixa </option>
                                        <!-- <option value="Transferencia"> Transferencia </option> -->
                                             <option value="Emprestado"> Emprestado </option>
-<<<<<<< HEAD
 					    <option value="CTI"> CTI </option>
-=======
-					    <option value="Livre"> Livre </option>
->>>>>>> 119c61a00f75ab206ddcb45b23e6e4c27850d977
                                         </select>
                                         <?php if (!empty($statusErro)) : ?>
                                         <span class="text-danger"><?php echo $statusErro; ?></span>
