@@ -1,13 +1,17 @@
 <?php
 require 'banco.php';
 $id = null;
-if (!empty($_GET['id'])) {
+if (!empty($_GET['id'])) 
+{
     $id = $_REQUEST['id'];
 }
 
-if (null == $id) {
+if (null == $id) 
+{
     header("Location: index.php");
-} else {
+} 
+else 
+{
     $pdo = Banco::conectar();
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql = "SELECT * FROM maquina where id = ?";
@@ -59,11 +63,10 @@ if (null == $id) {
                         </ul>
                     </div>
                 </div>
-
             </nav>
-            <!-- END nav -->
         </div>
     </header>
+
     <div class="container">
         <div class="span10 offset1">
             <div class="card">
@@ -206,34 +209,34 @@ if (null == $id) {
                             </div>
                         </div>
                         <div class="form-group">
-				<?php if ($data['ram'] == '1'){ 
-						echo "<br> <br> | ✓ Memoria RAM | ";
-					}else{echo "<br> <br> | ✘ Memoria RAM |";}
-				?>
+                            <?php 
+                                if ($data['ram'] == '1') {echo "<br> <br> | ✓ Memoria RAM | ";}
+                                else {echo "<br> <br> | ✘ Memoria RAM |";}
+				            ?>
                         </div>
                         <div class="form-group">
-				<?php if ($data['processador'] == '1'){ 
-						echo "<br> <br> | ✓ Processador | ";
-					}else{echo "<br> <br> | ✘ Processador |";}
-				?>
+                            <?php 
+                                if ($data['processador'] == '1'){echo "<br> <br> | ✓ Processador | ";}
+                                else {echo "<br> <br> | ✘ Processador |";}
+				            ?>
                         </div>
                         <div class="form-group">
-				<?php if ($data['fonte'] == '1'){ 
-						echo "<br> <br> | ✓ Fonte |";
-					}else{echo "<br> <br> | ✘ Fonte |";}
-				?>
+                            <?php 
+                                if ($data['fonte'] == '1'){ echo "<br> <br> | ✓ Fonte |";}
+                                else{echo "<br> <br> | ✘ Fonte |";}
+				            ?>
                         </div>
                         <div class="form-group">
-				<?php if ($data['bios'] == '1'){ 
-						echo "<br> <br> | ✓ Bateria BIOS |";
-					}else{echo "<br> <br> | ✘ Bateria BIOS |";}
-				?>
+                            <?php 
+                                if ($data['bios'] == '1'){echo "<br> <br> | ✓ Bateria BIOS |";}
+                                else{echo "<br> <br> | ✘ Bateria BIOS |";}
+				            ?>
                         </div>
                         <div class="form-group">
-				<?php if ($data['hd'] == '1'){ 
-						echo "<br> <br> | ✓ HD | ";
-					}else{echo "<br> <br> | ✘ HD | ";}
-				?>
+                            <?php 
+                                if ($data['hd'] == '1'){echo "<br> <br> | ✓ HD | ";}
+                                else{echo "<br> <br> | ✘ HD | ";}
+				            ?>
                         </div>
                     </div>
                     <div class="row">
@@ -279,7 +282,7 @@ if (null == $id) {
     <footer>
         <div class="container">
             <span class="badge badge-secondary">v 1.0.2 &copy; 2021 - Marcos A. R. T. dos Santos</span>
-            
+
 
 
         </div>
