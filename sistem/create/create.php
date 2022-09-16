@@ -8,15 +8,15 @@ if (!isset($_SESSION['UsuarioID'])) {
     // Destrói a sessão por segurança
     session_destroy();
     // Redireciona o visitante de volta pro login
-    header("Location: login.php");
+    header("Location: ./index.php");
     exit;
 }
 
 ?>
+
 <?php
 require 'banco.php';
 //Acompanha os erros de validação
-
 // Processar so quando tenha uma chamada post
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nomeErro = null;
@@ -150,7 +150,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-<header>
+    <header>
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="../index.php">Sistema de Controle de Maquinas</a>
@@ -445,7 +445,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             <option value="Estiva Gerbi">Estiva Gerbi</option>
                                             <option value="Estrela d'Oeste">Estrela d'Oeste</option>
                                             <option value="Estrela do Norte">Estrela do Norte</option>
-                                            <option value="Euclides da Cunha Paulista">Euclides da Cunha Paulista</option>
+                                            <option value="Euclides da Cunha Paulista">Euclides da Cunha Paulista
+                                            </option>
                                             <option value="Fartura">Fartura</option>
                                             <option value="Fernando Prestes">Fernando Prestes</option>
                                             <option value="Fernandópolis">Fernandópolis</option>
@@ -798,7 +799,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             <option value="Santa Maria da Serra">Santa Maria da Serra</option>
                                             <option value="Santa Mercedes">Santa Mercedes</option>
                                             <option value="Santa Rita d'Oeste">Santa Rita d'Oeste</option>
-                                            <option value="Santa Rita do Passa Quatro">Santa Rita do Passa Quatro</option>
+                                            <option value="Santa Rita do Passa Quatro">Santa Rita do Passa Quatro
+                                            </option>
                                             <option value="Santa Rosa de Viterbo">Santa Rosa de Viterbo</option>
                                             <option value="Santa Salete">Santa Salete</option>
                                             <option value="Santana da Ponte Pensa">Santana da Ponte Pensa</option>
@@ -807,7 +809,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             <option value="Santo André">Santo André</option>
                                             <option value="Santo Antônio da Alegria">Santo Antônio da Alegria</option>
                                             <option value="Santo Antônio de Posse">Santo Antônio de Posse</option>
-                                            <option value="Santo Antônio do Aracanguá">Santo Antônio do Aracanguá</option>
+                                            <option value="Santo Antônio do Aracanguá">Santo Antônio do Aracanguá
+                                            </option>
                                             <option value="Santo Antônio do Jardim">Santo Antônio do Jardim</option>
                                             <option value="Santo Antônio do Pinhal">Santo Antônio do Pinhal</option>
                                             <option value="Santo Expedito">Santo Expedito</option>
@@ -928,16 +931,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <select class="form-control" name="setor" placeholder="setor"
                                             value="<?php echo !empty($setor) ? $setor : ''; ?>">
                                             <option value="000"></option>
-                                            <option value="DSMM - Dep de Sementes, Mudas e Matrizes">DSMM - Dep de Sementes, Mudas e Matrizes</option>
-                                            <option value="EDR - Escritorio dev. Rural">EDR - Escritorio dev. Rural</option>
-                                            <option value="CA - Casa de Agricultura">CA - Casa de Agricultura</option>
-                                            <option value="NPM - Nucle de Prod. de Mudas">NPM - Nucle de Prod. de Mudas</option>
-                                            <option value="APTA - Agência Paulista de Tec. dos Agronegocios">APTA - Agência Paulista de Tec. dos Agronegocios
+                                            <option value="DSMM - Dep de Sementes, Mudas e Matrizes">DSMM - Dep de
+                                                Sementes, Mudas e Matrizes</option>
+                                            <option value="EDR - Escritorio dev. Rural">EDR - Escritorio dev. Rural
                                             </option>
-                                            <option value="CDA - Coordenadoria de Def. Agropecuaria">CDA - Corrdenadoria de Def. Agropecuaria</option>
-                                            <option value="CATI - Coordenadoria de Desenvolvimento Rural Sustentável">CATI - Coordenadoria de Desenvolvimento Rural
+                                            <option value="CA - Casa de Agricultura">CA - Casa de Agricultura</option>
+                                            <option value="NPM - Nucle de Prod. de Mudas">NPM - Nucle de Prod. de Mudas
+                                            </option>
+                                            <option value="APTA - Agência Paulista de Tec. dos Agronegocios">APTA -
+                                                Agência Paulista de Tec. dos Agronegocios
+                                            </option>
+                                            <option value="CDA - Coordenadoria de Def. Agropecuaria">CDA - Corrdenadoria
+                                                de Def. Agropecuaria</option>
+                                            <option value="CATI - Coordenadoria de Desenvolvimento Rural Sustentável">
+                                                CATI - Coordenadoria de Desenvolvimento Rural
                                                 Sustentável</option>
-					   <option value="CTIC - Centro de Tecnologia Informação e Comunicação">CTIC - Centro de Tecnologia Informação e Comunicação</option>
+                                            <option value="CTIC - Centro de Tecnologia Informação e Comunicação">CTIC -
+                                                Centro de Tecnologia Informação e Comunicação</option>
 
                                         </select>
                                         <?php if (!empty($localErro)) : ?>
@@ -1006,9 +1016,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             <option value="Pronta"> Pronta </option>
                                             <option value="Entregue"> Entregue </option>
                                             <option value="Baixa"> Baixa </option>
-                                       <!-- <option value="Transferencia"> Transferencia </option> -->
+                                            <!-- <option value="Transferencia"> Transferencia </option> -->
                                             <option value="Emprestado"> Emprestado </option>
-					    <option value="CTI"> CTI </option>
+                                            <option value="CTI"> CTI </option>
                                         </select>
                                         <?php if (!empty($statusErro)) : ?>
                                         <span class="text-danger"><?php echo $statusErro; ?></span>
@@ -1097,27 +1107,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     </div>
                                 </div>
                             </div>
-				<div class="form-check form-check-inline">
-  					<input class="form-check-input" type="checkbox" name="ram" id="ram" value="1">
-  					<label class="form-check-label" for="ram">Memoria RAM</label>
-				</div>
-				<div class="form-check form-check-inline">
-  					<input class="form-check-input" type="checkbox" name="processador" id="processador" value="1">
-  					<label class="form-check-label" for="processador">Processador</label>
-				</div>
-				<div class="form-check form-check-inline">
-  					<input class="form-check-input" type="checkbox" name="fonte" id="fonte" value="1">
-  					<label class="form-check-label" for="fonte">Fonte</label>
-				</div>
-				<div class="form-check form-check-inline">
-  					<input class="form-check-input" type="checkbox" name="bios" id="bios" value="1">
-  					<label class="form-check-label" for="bios">Bateria BIOS</label>
-				</div>
-				<div class="form-check form-check-inline">
-  					<input class="form-check-input" type="checkbox" name="hd" id="hd" value="1">
-  					<label class="form-check-label" for="hd">HD</label>
-				</div>
-                       </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="ram" id="ram" value="1">
+                                <label class="form-check-label" for="ram">Memoria RAM</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="processador" id="processador"
+                                    value="1">
+                                <label class="form-check-label" for="processador">Processador</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="fonte" id="fonte" value="1">
+                                <label class="form-check-label" for="fonte">Fonte</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="bios" id="bios" value="1">
+                                <label class="form-check-label" for="bios">Bateria BIOS</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="hd" id="hd" value="1">
+                                <label class="form-check-label" for="hd">HD</label>
+                            </div>
+                        </div>
 
 
                         <div class="row">
@@ -1171,7 +1182,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <footer>
         <div class="container">
             <span class="badge badge-secondary">v 1.2.0 &copy; 2021 - Marcos A. R. T. dos Santos </span>
-            <p</p>
+            <p< /p>
 
 
         </div>
