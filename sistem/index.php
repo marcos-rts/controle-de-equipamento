@@ -26,62 +26,66 @@ if (!isset($_SESSION['UsuarioID'])) {
 </head>
 
 <body>
-<header>
-<div class="container">
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="../index.php">Sistema de Controle de Maquinas</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
-    <ul class="navbar-nav ml-auto mr-md-3">
-      <li class="nav-item active">
-        <a class="nav-link" href="../index.php">Home <span class="sr-only">(página atual)</span></a>
-      </li>
-      <li class="nav-item">
-       <!--  <a class="nav-link" href="#">Link</a> -->
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Maquinas
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="../index.php">Pendentes</a>
-          <a class="dropdown-item" href="../sistem/transferencia.php">Transferencia</a>
-          <a class="dropdown-item" href="../sistem/entregues.php">Entregues</a>
-          <a class="dropdown-item" href="../sistem/maquinas_livres.php">Livres</a>
-          <a class="dropdown-item" href="#"></a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item disabled" href="#">Em Breve</a>
-        </div>
-      </li>
+    <header>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="../index.php">Sistema de Controle de Maquinas</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false"
+                    aria-label="Alterna navegação">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+                    <ul class="navbar-nav ml-auto mr-md-3">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="../index.php">Home <span class="sr-only">(página atual)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <!--  <a class="nav-link" href="#">Link</a> -->
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Maquinas
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="../index.php">Pendentes</a>
+                                <a class="dropdown-item" href="../sistem/transferencia.php">Transferencia</a>
+                                <a class="dropdown-item" href="../sistem/entregues.php">Entregues</a>
+                                <a class="dropdown-item" href="../sistem/maquinas_livres.php">Livres</a>
+                                <a class="dropdown-item" href="#"></a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item disabled" href="#">Em Breve</a>
+                            </div>
+                        </li>
 
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-         <?php echo $_SESSION['UsuarioNome'] ?>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-           <a class="dropdown-item" href="../users/index.php">Informação</a>
-          <a class="dropdown-item" href="../users/trocarsenha.php">Trocar Senha</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="../logout.php">Logout</a>
-          <?php
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <?php echo $_SESSION['UsuarioNome'] ?>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="../users/index.php">Informação</a>
+                                <a class="dropdown-item" href="../users/trocarsenha.php">Trocar Senha</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="../logout.php">Logout</a>
+                                <?php
 	  if ($_SESSION['UsuarioNivel'] == '5' || $_SESSION['UsuarioID'] == '7') {
           ?>
-          <a href="../private/config.php" class="dropdown-item">Configurações gerais</a>
-          <?php
+                                <a href="../private/config.php" class="dropdown-item">Configurações gerais</a>
+                                <?php
           }
           ?>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <!--  <a class="nav-link disabled" href="#">Desativado</a> -->
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         </div>
-      </li>
-      <li class="nav-item">
-       <!--  <a class="nav-link disabled" href="#">Desativado</a> -->
-      </li>
-    </ul>
-  </div>
-</nav>
-</div>
-</header>
+    </header>
 
     <!-- END nav -->
     <div class="container">
@@ -150,7 +154,19 @@ if (!isset($_SESSION['UsuarioID'])) {
         ?>
         <div class="row">
             <p>
-                <a href="create.php" class="btn btn-success">Adicionar</a>
+                <!-- <a href="create.php" class="btn btn-success">Adicionar</a> -->
+            <div class="dropdown">
+                <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Adicionar
+                </button>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="create/create_desktop.php">Desktop</a>
+                    <a class="dropdown-item" href="../sistem/transferencia.php">Notebook</a>
+                    <a class="dropdown-item" href="../sistem/entregues.php">Impressora</a>
+                </div>
+            </div>
+
             </p>
             <br>
             <table class="table table-striped" id="tab2">
@@ -398,13 +414,8 @@ if (!isset($_SESSION['UsuarioID'])) {
     AdicionarFiltro("tab2", 3);
     AdicionarFiltro("tab2", 5);
     </script>
-<<<<<<< HEAD
     <script src="https://apps.elfsight.com/p/platform.js" defer></script>
     <div class="elfsight-app-0adf68fa-23ad-4b8d-81ce-a072aa689b8a"></div>
-=======
-<script src="https://apps.elfsight.com/p/platform.js" defer></script>
-<div class="elfsight-app-0adf68fa-23ad-4b8d-81ce-a072aa689b8a"></div>
->>>>>>> 119c61a00f75ab206ddcb45b23e6e4c27850d977
 </body>
 
 </html>
