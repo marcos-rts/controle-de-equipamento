@@ -162,8 +162,9 @@ if (!isset($_SESSION['UsuarioID'])) {
                 </button>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="create/create_desktop.php">Desktop</a>
-                    <a class="dropdown-item" href="../sistem/transferencia.php">Notebook</a>
-                    <a class="dropdown-item" href="../sistem/entregues.php">Impressora</a>
+                    <a class="dropdown-item" href="create/create_notebook.php">Notebook</a>
+                    <a class="dropdown-item" href="create/create_impressora.php">Impressora</a>
+                    <a class="dropdown-item" href="create/create.php">Outros</a>
                 </div>
             </div>
 
