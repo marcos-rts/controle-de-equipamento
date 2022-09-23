@@ -15,7 +15,7 @@ if (!isset($_SESSION['UsuarioID'])) {
 ?>
 
 <?php
-require 'banco.php';
+require '../banco.php';
 //Acompanha os erros de validação
 // Processar so quando tenha uma chamada post
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -145,7 +145,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="utf-8">
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
     <title>Adicionar Maquina</title>
 </head>
 
@@ -153,7 +153,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <header>
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="../index.php">Sistema de Controle de Maquinas</a>
+                <a class="navbar-brand" href="../../index.php">Sistema de Controle de Maquinas</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false"
                     aria-label="Alterna navegação">
@@ -162,7 +162,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
                     <ul class="navbar-nav ml-auto mr-md-3">
                         <li class="nav-item active">
-                            <a class="nav-link" href="../index.php">Home <span class="sr-only">(página atual)</span></a>
+                            <a class="nav-link" href="../../index.php">Home <span class="sr-only">(página atual)</span></a>
                         </li>
                         <li class="nav-item">
                             <!--  <a class="nav-link" href="#">Link</a> -->
@@ -1168,7 +1168,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <div class="form-actions">
                             <br />
                             <button type="submit" class="btn btn-success">Adicionar</button>
-                            <a href="index.php" type="btn" class="btn btn-default">Voltar</a>
+                            <a href="../index.php" type="btn" class="btn btn-default">Voltar</a>
                         </div>
                 </div>
                 </form>
