@@ -160,7 +160,7 @@ if (!isset($_SESSION['UsuarioID'])) {
                         <th scope="col">Saida</th>
                      <!--   <th scope="col">Status</th> -->
                         <th scope="col">Chapa</th>
-                        <th scope="col">Chamado</th>
+                        <th scope="col">ID</th>
                         <th scope="col">Ação</th>
                     </tr>
                 </thead>
@@ -177,9 +177,8 @@ if (!isset($_SESSION['UsuarioID'])) {
                                 echo '<td>' . $row['local'] . '</td>';
                                 echo '<td>' . $row['setor'] . '</td>';
                                 echo '<td>' . $row['saida'] . '</td>';
-                                
                                 echo '<td>' . $row['chapa'] . '</td>';
-                                echo '<td>' . $row['chamado'] . '</td>';
+                                echo '<td>' . $row['id'] . '</td>';
                                 echo '<td width=200>';
                                 echo '<a class="btn btn-primary" href="read.php?id=' . $row['id'] . '">Info</a>';
                                 echo ' ';

@@ -179,7 +179,7 @@ if (!isset($_SESSION['UsuarioID'])) {
                         <th scope="col">Entrada</th>
                         <th scope="col">Status</th>
                         <th scope="col">Chapa</th>
-                        <th scope="col">Chamado</th>
+                        <th scope="col">Armazenamento</th>
                         <th scope="col">Ação</th>
                     </tr>
                 </thead>
@@ -201,7 +201,8 @@ if (!isset($_SESSION['UsuarioID'])) {
                                             echo '<td width=150>' . $row['entrada'] . '</td>';
 				                            echo '<td>' . $row['status'] . '</td>';
                                             echo '<td>' . $row['chapa'] . '</td>';
-                                            echo '<td>' . $row['chamado'] . '-' . $row['id'] .  '</td>';
+                                            echo '<td>' . $row['local2'] . '</td>';
+                                            // echo '<td>' . $row['chamado'] . '-' . $row['id'] .  '</td>';
                                             echo '<td width=265>';
                                             echo '<a class="btn btn-primary" href="read.php?id=' . $row['id'] . '">Info</a>';
                                             echo ' ';
