@@ -964,11 +964,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 </div>
                             </div>
 
-                            <!-- <div class="form-group col-md-2">
-            <label for="campo3">CEP</label>
-            <input type="text" class="form-control" name="maquina['zip_code']">
-        </div> -->
-
                             <div class="form-group col-md-3">
                                 <div class="control-group  <?php echo !empty($entradaErro) ? 'error ' : ''; ?>">
                                     <label class="control-label">Data de Entrada</label>
@@ -998,7 +993,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <br>
 
                         <div class="row">
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-6">
                                 <div class="control-group  <?php echo !empty($tecnicoErro) ? 'error ' : ''; ?>">
                                     <label class="control-label">Tecnico que Arrumou</label>
                                     <div class="controls">
@@ -1114,26 +1109,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="ram" id="ram" value="1">
-                                <label class="form-check-label" for="ram">Memoria RAM</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="processador" id="processador"
-                                    value="1">
-                                <label class="form-check-label" for="processador">Processador</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="fonte" id="fonte" value="1">
-                                <label class="form-check-label" for="fonte">Fonte</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="bios" id="bios" value="1">
-                                <label class="form-check-label" for="bios">Bateria BIOS</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="hd" id="hd" value="1">
-                                <label class="form-check-label" for="hd">HD</label>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6"> 
+                                <label class="control-label">CHECK-LIST</label><br>
+
+
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="ram" id="ram" value="1">
+                                    <label class="form-check-label" for="ram">Memoria RAM</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="processador" id="processador"
+                                        value="1">
+                                    <label class="form-check-label" for="processador">Processador</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="fonte" id="fonte" value="1">
+                                    <label class="form-check-label" for="fonte">Fonte</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="bios" id="bios" value="1">
+                                    <label class="form-check-label" for="bios">Bateria BIOS</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="hd" id="hd" value="1">
+                                    <label class="form-check-label" for="hd">HD</label>
+                                </div>
                             </div>
                         </div>
 
