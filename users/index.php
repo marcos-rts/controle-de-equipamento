@@ -1,8 +1,6 @@
 <?php
-
 // A sessão precisa ser iniciada em cada página diferente
 if (!isset($_SESSION)) session_start();
-
 // Verifica se não há a variável da sessão que identifica o usuário
 if (!isset($_SESSION['UsuarioID'])) {
     // Destrói a sessão por segurança
@@ -11,7 +9,6 @@ if (!isset($_SESSION['UsuarioID'])) {
     header("Location: ../index.php");
     exit;
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -21,257 +18,212 @@ if (!isset($_SESSION['UsuarioID'])) {
     <meta charset="utf-8">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-    <title>Página Inicial</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Info Usuario</title>
 </head>
 
 <body>
     <header>
         <div class="container">
-            <nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-dark" id="ftco-navbar">
-                <div class="container">
-                    <a class="navbar-brand" href="../index.php">Sistema de Controle de Maquinas</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
-                        aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="fa fa-bars"></span>
-                        Menu
-                    </button>
-                    <div class="collapse navbar-collapse" id="ftco-nav">
-                        <ul class="navbar-nav ml-auto mr-md-3">
-                            <li class="nav-item active">
-                                <a href="../sistem/index.php" class="nav-link">Pendentes</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../sistem/entregues.php" class="nav-link">Entregues</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="index.php" class="nav-link">Usuario</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../logout.php" class="nav-link">Logout</a>
-                            </li>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../users/trocarsenha.php" class="nav-link">Trocar senha</a>
-                            </li>
-                            <?php
-                            if ($_SESSION['UsuarioNivel'] == '5') {
-                            ?>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">Configurações gerais</a>
-                            </li>
-                            <?php
-                            }
-                            ?>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="../index.php">Sistema de Controle de Maquinas</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false"
+                    aria-label="Alterna navegação">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+                    <ul class="navbar-nav ml-auto mr-md-3">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="../index.php">Home <span class="sr-only">(página atual)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <!--  <a class="nav-link" href="#">Link</a> -->
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Maquinas
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="../index.php">Pendentes</a>
+                                <a class="dropdown-item" href="../sistem/transferencia.php">Transferencia</a>
+                                <a class="dropdown-item" href="../sistem/entregues.php">Entregues</a>
+                                <a class="dropdown-item" href="../sistem/maquinas_livres.php">Livres</a>
+                                <a class="dropdown-item" href="#"></a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item disabled" href="#">Em Breve</a>
+                            </div>
+                        </li>
 
-                        </ul>
-                    </div>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <?php echo $_SESSION['UsuarioNome'] ?>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="../users/index.php">Informação</a>
+                                <a class="dropdown-item" href="../users/trocarsenha.php">Trocar Senha</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="../logout.php">Logout</a>
+                                <?php
+	                            if ($_SESSION['UsuarioNivel'] == '5' || $_SESSION['UsuarioID'] == '7') {
+                                ?>
+                                <a href="../private/config.php" class="dropdown-item">Configurações gerais</a>
+                                <?php
+                                }
+                                ?>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <!--  <a class="nav-link disabled" href="#">Desativado</a> -->
+                        </li>
+                    </ul>
                 </div>
-
             </nav>
-            <!-- END nav -->
         </div>
     </header>
-    <div class="container">
-        <p>Conectado como <?php echo $_SESSION['UsuarioNome']; ?> </p>
-
-        <!-- <div class="jumbotron">
-            <p>Conectado como <?php echo $_SESSION['UsuarioNome']; ?> </p>
-
-            <div class="row">
-                <h2>SAA - Controle de Maquinas</h2>
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center mb-5">
+                    <h2 class="heading-section">Lista de Usuarios</h2>
+                </div>
             </div>
+            <!-- Nivel 2 -->
+            <?php
+            if ($_SESSION['UsuarioNivel'] == '2') {
+            ?>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-wrap">
+                        <table class="table table-responsive-xl">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Email</th>
+                                    <th>Username</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php  
+                                include 'banco.php';
+                                $pdo = Banco::conectar();
+                                $sql = 'SELECT * FROM usuarios';
 
-        </div> -->
-        </br>
-        <!-- Nivel 1 &2 -->
-        <?php
-        if ($_SESSION['UsuarioNivel'] == '1' || $_SESSION['UsuarioNivel'] == '2') {
-        ?>
-        <div class="row">
-            <br>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Id</th>
-                        <!-- <th scope="col">Nome</th> -->
-                        <th scope="col">Nome</th>
-                        <th scope="col">Usuario</th>
-                        <th scope="col">Ativo</th>
-                        <th scope="col">Ação</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                        include 'banco.php';
-                        $pdo = Banco::conectar();
-                        $sql = 'SELECT * FROM usuarios ORDER BY id DESC';
-
-                        foreach ($pdo->query($sql) as $row) {
-                            if ($row['nome'] == $_SESSION['UsuarioNome']) {
-                                echo '<tr>';
-                                echo '<th scope="row">' . $row['id'] . '</th>';
-                                echo '<td>' . $row['nome'] . '</td>';
-                                echo '<td>' . $row['usuario'] . '</td>';
-                                if ($row['ativo'] == '1') {
-                                    echo '<td>Sim</td>';
-                                } else {
-                                    echo '<td> Não </td>';
+                                foreach ($pdo->query($sql) as $row) {
+                                    if ($row['nome'] == $_SESSION['UsuarioNome']) {
+                                    ?>
+                                <tr class="alert" role="alert">
+                                    <td><?php echo $row['id'] ?></td>
+                                    <td class="d-flex align-items-center">
+                                        <div class="img" style="background-image: url(../images/vazio.png);"></div>
+                                        <div class="pl-3 email">
+                                            <span><?php echo $row['email'] ?></span>
+                                            <span><?php echo $row['cadastro'] ?></span>
+                                        </div>
+                                    </td>
+                                    <td><?php echo $row['usuario'] ?></td>
+                                    <?php
+                                    if ($row['ativo'] == '1') { ?>
+                                    <td class="status"><span class="active">Active</span></td>
+                                    <?php
+                                    }else{ ?>
+                                    <td class="status"><span class="waiting">disabled</span></td>
+                                    <?php
+                                    }
+                                    ?>
+                                    <td>
+                                        <a class="btn " href="read.php?id=<?php echo $row['id'] ?>">Info</a>
+                                        <a class="btn " href="updatenivel1.php?id=<?php echo $row['id'] ?>">Atua.</a>
+                                    </td>
+                                </tr>
+                                <?php
+                                    }
                                 }
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <?php
+            }
+            ?>
+            <!-- Fim nivel 2 -->
+            <!-- Nivel 5 -->
+            <?php
+            if ($_SESSION['UsuarioNivel'] == '5') {
+            ?>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-wrap">
+                        <table class="table table-responsive-xl">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Email</th>
+                                    <th>Username</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php  
+                                include 'banco.php';
+                                $pdo = Banco::conectar();
+                                $sql = 'SELECT * FROM usuarios';
 
-                                echo '<td width=200>';
-                                echo '<a class="btn " href="read.php?id=' . $row['id'] . '">Info</a>';
-                                echo ' ';
-                                echo '<a class="btn " href="updatenivel1.php?id=' . $row['id'] . '">Atualizar</a>';
-                                echo ' ';
-                                echo '</td>';
-                                echo '</tr>';
-                            }
-                        }
-                        Banco::desconectar();
-                        ?>
-                </tbody>
-            </table>
-        </div>
-        <?php
-        }
-        ?>
-        <!-- fim Nivel 1 & 2 -->
-
-        <!-- Nivel 3-->
-        <?php
-        if ($_SESSION['UsuarioNivel'] == '3' || $_SESSION['UsuarioNivel'] == '4') {
-        ?>
-        <div class="row">
-            <br>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Id</th>
-                        <!-- <th scope="col">Nome</th> -->
-                        <th scope="col">Nome</th>
-                        <th scope="col">Usuario</th>
-                        <th scope="col">Ativo</th>
-                        <th scope="col">Ação</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                        include 'banco.php';
-                        $pdo = Banco::conectar();
-                        $sql = 'SELECT * FROM usuarios ORDER BY id DESC';
-
-                        foreach ($pdo->query($sql) as $row) {
-                            if ($row['nome'] == $_SESSION['UsuarioNome']) {
-                                echo '<tr>';
-                                echo '<th scope="row">' . $row['id'] . '</th>';
-                                echo '<td>' . $row['nome'] . '</td>';
-                                echo '<td>' . $row['usuario'] . '</td>';
-                                if ($row['ativo'] == '1') {
-                                    echo '<td>Sim</td>';
-                                } else {
-                                    echo '<td> Não </td>';
+                                foreach ($pdo->query($sql) as $row) {
+                                ?>
+                                <tr class="alert" role="alert">
+                                    <td><?php echo $row['id'] ?></td>
+                                    <td class="d-flex align-items-center">
+                                        <div class="img" style="background-image: url(../images/vazio.png);"></div>
+                                        <div class="pl-3 email">
+                                            <span><?php echo $row['email'] ?></span>
+                                            <span><?php echo $row['cadastro'] ?></span>
+                                        </div>
+                                    </td>
+                                    <td><?php echo $row['usuario'] ?></td>
+                                    <?php
+                                    if ($row['ativo'] == '1') { ?>
+                                    <td class="status"><span class="active">Active</span></td>
+                                    <?php
+                                    }else{ ?>
+                                    <td class="status"><span class="waiting">disabled</span></td>
+                                    <?php
+                                    }
+                                    ?>
+                                    <td>
+                                        <a class="btn " href="read.php?id=<?php echo $row['id'] ?>">Info</a>
+                                        <a class="btn " href="update.php?id=<?php echo $row['id'] ?>">Atua.</a>
+                                        <a class="btn " href="delete.php?id=<?php echo $row['id'] ?>">Del.</a>
+                                    </td>
+                                </tr>
+                                <?php
                                 }
-
-                                echo '<td width=200>';
-                                echo '<a class="btn " href="read.php?id=' . $row['id'] . '">Info</a>';
-                                echo ' ';
-                                echo '<a class="btn " href="updatenivel1.php?id=' . $row['id'] . '">Atualizar</a>';
-                                echo ' ';
-                                echo '</td>';
-                                echo '</tr>';
-                            }
-                        }
-                        foreach ($pdo->query($sql) as $row) {
-                            if ($row['nome'] != $_SESSION['UsuarioNome'] && $row['ativo'] == '1') {
-                                echo '<tr>';
-                                echo '<th scope="row">' . $row['id'] . '</th>';
-                                echo '<td>' . $row['nome'] . '</td>';
-                                echo '<td>' . $row['usuario'] . '</td>';
-                                if ($row['ativo'] == '1') {
-                                    echo '<td>Sim</td>';
-                                } else {
-                                    echo '<td> Não </td>';
-                                }
-
-                                echo '<td width=200>';
-                                echo '<a class="btn " href="read.php?id=' . $row['id'] . '">Info</a>';
-                                echo ' ';
-                                echo '</td>';
-                                echo '</tr>';
-                            }
-                        }
-                        Banco::desconectar();
-                        ?>
-                </tbody>
-            </table>
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <a class="btn " href="niveis.php">Niveis de Usuarios</a>
+            <?php
+            }
+            ?>
+            <!-- Fim nivel 5 -->
         </div>
-        <?php
-        }
-        ?>
-        <!-- fim Nivel 3 -->
-        <!-- nivel 5 -->
-        <?php
-        if ($_SESSION['UsuarioNivel'] == '5'){
-        ?>
-        <div class="row">
-            <p>
-                <a href="create.php" class="btn btn-success">Adicionar</a>
-            </p>
-            <br>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Id</th>
-                        <!-- <th scope="col">Nome</th> -->
-                        <th scope="col">Nome</th>
-                        <th scope="col">Usuario</th>
-                        <th scope="col">Nivel</th>
-                        <th scope="col">Ativo</th>
-                        <th scope="col">Ação</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    include 'banco.php';
-                    $pdo = Banco::conectar();
-                    $sql = 'SELECT * FROM usuarios ORDER BY id DESC';
-
-                    foreach ($pdo->query($sql) as $row) {
-                        echo '<tr>';
-                        echo '<th scope="row">' . $row['id'] . '</th>';
-                        echo '<td>' . $row['nome'] . '</td>';
-                        echo '<td>' . $row['usuario'] . '</td>';
-                        echo '<td>' . $row['nivel'] . '</td>';
-                        echo '<td>' . $row['ativo'] . '</td>';
-
-                        echo '<td width=300>';
-                        echo '<a class="btn " href="read.php?id=' . $row['id'] . '">Info</a>';
-                        echo ' ';
-                        echo '<a class="btn " href="update.php?id=' . $row['id'] . '">Atualizar</a>';
-                        echo ' ';
-                        echo '<a class="btn " href="delete.php?id=' . $row['id'] . '">Excluir</a>';
-                        echo ' ';
-                        echo '</td>';
-                        echo '</tr>';
-                    }
-                    Banco::desconectar();
-                    ?>
-                </tbody>
-            </table>
-        </div>
-        <hr>
-        <a class="btn " href="niveis.php">Niveis de Usuarios</a>
-        <?php
-        }
-        ?>
-        <!-- fim nivel 5 -->
-
-
-    </div>
-
+    </section>
     <footer>
         <div class="container">
-            <span class="badge badge-secondary">v 1.0.0 &copy; 2021 - Marcos A. R. T. dos Santos</span>
+            <span class="badge badge-secondary">v 3.0.0 &copy; 2021 - Marcos A. R. T. dos Santos</span>
 
 
         </div>
@@ -283,6 +235,7 @@ if (!isset($_SESSION['UsuarioID'])) {
     </script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="../assets/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>
