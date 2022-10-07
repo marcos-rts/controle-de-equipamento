@@ -21,7 +21,7 @@ if (!isset($_SESSION['UsuarioID'])) {
     <meta charset="utf-8">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-    <title>Página Inicial</title>
+    <title>🟢Home</title>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 </head>
 
@@ -49,20 +49,23 @@ if (!isset($_SESSION['UsuarioID'])) {
                                 Maquinas
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="../index.php">Pendentes</a>
-                                <a class="dropdown-item" href="../sistem/transferencia.php">Transferencia</a>
+                                <a class="dropdown-item" href="../sistem/index.php">Pendentes</a>
+                                <!-- <a class="dropdown-item" href="../sistem/transferencia.php">Transferencia</a> -->
                                 <a class="dropdown-item" href="../sistem/entregues.php">Entregues</a>
                                 <a class="dropdown-item" href="../sistem/maquinas_livres.php">Livres</a>
-                                <a class="dropdown-item" href="#"></a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item disabled" href="#">Em Breve</a>
                             </div>
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <?php echo $_SESSION['UsuarioNome'] ?>
+                            </a> -->
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Usuario
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="../users/index.php">Informação</a>
@@ -70,12 +73,27 @@ if (!isset($_SESSION['UsuarioID'])) {
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="../logout.php">Logout</a>
                                 <?php
-	  if ($_SESSION['UsuarioNivel'] == '5' || $_SESSION['UsuarioID'] == '7') {
-          ?>
+	                            if ($_SESSION['UsuarioNivel'] == '5' || $_SESSION['UsuarioID'] == '7') {
+                                ?>
                                 <a href="../private/config.php" class="dropdown-item">Configurações gerais</a>
                                 <?php
-          }
-          ?>
+                                }
+                                ?>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Outros
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="../php/calendario.php">Calendario</a>
+                                <!-- <a class="dropdown-item" href="../sistem/transferencia.php">Transferencia</a> -->
+                                <!-- <a class="dropdown-item" href="../sistem/entregues.php">Entregues</a> -->
+                                <!-- <a class="dropdown-item" href="../sistem/maquinas_livres.php">Livres</a> -->
+                                <a class="dropdown-item" href="#"></a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item disabled" href="#">Em Breve</a>
                             </div>
                         </li>
                         <li class="nav-item">
@@ -84,7 +102,10 @@ if (!isset($_SESSION['UsuarioID'])) {
                     </ul>
                 </div>
             </nav>
+            <small>🟢Conectado como <strong><?php echo $_SESSION['UsuarioNome'] ?> </strong></small>
+
         </div>
+
     </header>
 
     <!-- END nav -->
