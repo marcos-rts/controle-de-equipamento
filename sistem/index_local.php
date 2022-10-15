@@ -1,15 +1,20 @@
 <?php
 
-// A sessão precisa ser iniciada em cada página diferente
-if (!isset($_SESSION)) session_start();
+// require 'banco.php';
+//Iniciando a sessão:
+if (session_status() !== PHP_SESSION_ACTIVE) {session_start();}
+//Acessando valores dentro de uma sessão:
+//echo $_SESSION['UsuarioID'];
+//echo $_SESSION['UsuarioNome'];
 
-// Verifica se não há a variável da sessão que identifica o usuário
-if (!isset($_SESSION['UsuarioID'])) {
-    // Destrói a sessão por segurança
-    session_destroy();
-    // Redireciona o visitante de volta pro login
-    header("Location: ../index.php");
-    exit;
+
+$local = null;
+if (!empty($_GET['local'])) {
+    $local = $_REQUEST['local'];
+}
+
+if (null == $local) {
+    header("Location: index.php");
 }
 
 ?>
@@ -168,7 +173,7 @@ if (!isset($_SESSION['UsuarioID'])) {
 			                            if ($row['status'] != 'Arquivado'){
                                             echo '<tr scope="row">';
                                             echo '<th>' . $row['id'] . '</th>';
-                                            echo '<td><a href="index_local.php?local=' . $row['local'] . '">' . $row['local'] . '</a><small class="d-block">' . $row['setor'] . '</small></td>';
+                                            echo '<td><a href="#">' . $row['local'] . '</a><small class="d-block">' . $row['setor'] . '</small></td>';
                                             echo '<td width=150>' . $row['entrada'] . '</td>';
 				                            echo '<td>' . $row['status'] . '</td>';
                                             echo '<td>' . $row['chapa'] . '</td>';
@@ -242,6 +247,7 @@ if (!isset($_SESSION['UsuarioID'])) {
                                 if ($row['status'] != 'CTI' ) {
 			                        if ($row['status'] != 'Transferencia'){
 			                            if ($row['status'] != 'Arquivado'){
+                                            if ($row['local'] == $local){
                                             echo '<tr scope="row">';
                                             echo '<th>' . $row['id'] . '</th>';
                                             echo '<td><a href="index_local.php?local=' . $row['local'] . '">' . $row['local'] . '</a><small class="d-block">' . $row['setor'] . '</small></td>';
@@ -259,6 +265,7 @@ if (!isset($_SESSION['UsuarioID'])) {
                                             echo '</tr>';
                                             echo '<tr class="spacer"><td colspan="100"></td></tr>';
                                         }
+                                    }
 			                        }
 			                    }
 			                }
@@ -322,7 +329,7 @@ if (!isset($_SESSION['UsuarioID'])) {
 			                            if ($row['status'] != 'Arquivado'){
                                             echo '<tr scope="row">';
                                             echo '<th>' . $row['id'] . '</th>';
-                                            echo '<td><a href="index_local.php?local=' . $row['local'] . '">' . $row['local'] . '</a><small class="d-block">' . $row['setor'] . '</small></td>';
+                                            echo '<td><a href="#">' . $row['local'] . '</a><small class="d-block">' . $row['setor'] . '</small></td>';
                                             echo '<td width=150>' . $row['entrada'] . '</td>';
 				                            echo '<td>' . $row['status'] . '</td>';
                                             echo '<td>' . $row['chapa'] . '</td>';
