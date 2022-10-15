@@ -21,6 +21,12 @@ if (!isset($_SESSION['UsuarioID'])) {
     <meta charset="utf-8">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style_list_index.css">
+    <link rel="stylesheet" href="../fonts/icomoon/style.css">
+    <link rel="stylesheet" href="../css/owl.carousel.min.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
     <title>🟢Home</title>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 </head>
@@ -191,22 +197,21 @@ if (!isset($_SESSION['UsuarioID'])) {
 
             </p>
             <br>
-            <table class="table table-striped" id="tab2">
-                <thead>
-                    <tr>
-                        <th scope="col">Id</th>
-                        <!-- <th scope="col">Nome</th> -->
-                        <th scope="col">Local</th>
-                        <th scope="col">Setor</th>
-                        <th scope="col">Entrada</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Chapa</th>
-                        <th scope="col">Armazenamento</th>
-                        <th scope="col">Ação</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
+            <div class="table-responsive custom-table-responsive">
+                <table class="table custom-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Local</th>
+                            <th scope="col">Entrada</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Chapa</th>
+                            <th scope="col">Armazenamento</th>
+                            <th scope="col">Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
                         include 'banco.php';
                         $pdo = Banco::conectar();
                         $sql = 'SELECT * FROM maquina ORDER BY id DESC';
@@ -216,23 +221,22 @@ if (!isset($_SESSION['UsuarioID'])) {
                                 if ($row['status'] != 'CTI' ) {
 			                        if ($row['status'] != 'Transferencia'){
 			                            if ($row['status'] != 'Arquivado'){
-                                            echo '<tr>';
-                                            echo '<th scope="row">' . $row['id'] . '</th>';
-                                            echo '<td>' . $row['local'] . '</td>';
-                                            echo '<td>' . $row['setor'] . '</td>';
+                                            echo '<tr scope="row">';
+                                            echo '<th>' . $row['id'] . '</th>';
+                                            echo '<td><a href="#">' . $row['local'] . '</a><small class="d-block">' . $row['setor'] . '</small></td>';
                                             echo '<td width=150>' . $row['entrada'] . '</td>';
 				                            echo '<td>' . $row['status'] . '</td>';
                                             echo '<td>' . $row['chapa'] . '</td>';
                                             echo '<td>' . $row['local2'] . '</td>';
-                                            // echo '<td>' . $row['chamado'] . '-' . $row['id'] .  '</td>';
-                                            echo '<td width=265>';
-                                            echo '<a class="btn btn-primary" href="read.php?id=' . $row['id'] . '">Info</a>';
+                                            echo '<td width=200>';
+                                            echo '<a href="read.php?id=' . $row['id'] . '"><strong>👁️</strong></a>';
                                             echo ' ';
-                                            echo '<a class="btn btn-warning" href="update.php?id=' . $row['id'] . '">Atualizar</a>';
+                                            echo '<a href="update.php?id=' . $row['id'] . '">✏️</a>';
                                             echo ' ';
-                                            echo '<a class="btn btn-dark" href="imprimir.php?id=' . $row['id'] . '">Imprimir</a>';
+                                            echo '<a href="imprimir.php?id=' . $row['id'] . '">🖨️</a>';
                                             echo '</td>';
                                             echo '</tr>';
+                                            echo '<tr class="spacer"><td colspan="100"></td></tr>';
                                         }
 			                        }
 			                    }
@@ -240,8 +244,9 @@ if (!isset($_SESSION['UsuarioID'])) {
                         }
                         Banco::desconectar();
                         ?>
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <?php
         }
@@ -436,9 +441,14 @@ if (!isset($_SESSION['UsuarioID'])) {
     AdicionarFiltro("tab2", 2);
     AdicionarFiltro("tab2", 3);
     AdicionarFiltro("tab2", 5);
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/main.js"></script>
     </script>
     <script src="https://apps.elfsight.com/p/platform.js" defer></script>
     <div class="elfsight-app-0adf68fa-23ad-4b8d-81ce-a072aa689b8a"></div>
+
 </body>
 
 </html>
