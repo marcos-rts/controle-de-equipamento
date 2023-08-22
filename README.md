@@ -1,20 +1,41 @@
-# controle-de-equipamento
+# Controle de Equipamento
 
-Este projeto foi planejado para se obter um controle de entrada e saida de equipamentos em meu serviços, pois o mesmo se encontrava somente em planilha, nisto veio a ideia de se criar um sistema para facilitar a tarefa e deixar mais pratica.
+ <!-- ![Imagem do Projeto](link_para_imagem.png) Se você tiver uma imagem relacionada ao projeto, adicione aqui -->
 
-As tecnologias usadas para esse sistema em web foram:
+Este projeto tem como objetivo a criação de um sistema de controle de entrada e saída de equipamentos para os serviços prestados. A ideia surgiu da necessidade de substituir uma planilha existente por um sistema mais prático e eficiente.
 
- - PHP (para o  seu funcionamento)
- - CSS (para o seu visual)
- - Bootstrap (para customização de formularios)
- - MySQL (responsavel pelo banco de dados)
- - JavaScript (funcionamento de filtros entre outros)
+## Tecnologias Utilizadas
 
-Espero ir melhorando esse projeto mais e mais para que no futuro ser o sistema fixo usado tanto em meu atual trabalho quanto em outras implementações futuras 
+O sistema web foi desenvolvido utilizando as seguintes tecnologias:
 
-Como proximas atualizações se espera:
+- **PHP**: Utilizado para a lógica e funcionamento do sistema.
+- **CSS**: Responsável pela aparência visual e formatação.
+- **Bootstrap**: Utilizado para estilização e personalização de formulários.
+- **MySQL**: Banco de dados para armazenar as informações.
+- **JavaScript**: Responsável por funcionalidades interativas como filtros.
 
- - Pagina inicial de pesquisa para clientes
- - Check-list de maquinas
- - Novo folha de fe VIA para cliente e funcionario com um melhor visual
- 
+## Objetivos
+
+O objetivo principal deste projeto é criar um sistema confiável e de fácil utilização para gerenciar a entrada e saída de equipamentos nos serviços. O sistema visa substituir a planilha existente, tornando a tarefa de controle mais prática e eficiente.
+
+## Próximas Atualizações
+
+Estamos comprometidos em continuar melhorando e expandindo este projeto. Algumas das próximas atualizações planejadas incluem:
+
+- **Página Inicial de Pesquisa para Clientes**: Facilitar a busca e visualização de informações relacionadas aos clientes.
+- **Check-list de Máquinas**: Implementação de um check-list para manutenção e controle das máquinas.
+- **Nova Folha de Frente (VIA)**: Aprimorar a folha de frente para clientes e funcionários, com um design mais atraente e funcional.
+
+Agradecemos pelo interesse e esperamos que este projeto continue a ser uma solução valiosa para o controle de equipamentos em diversos contextos, incluindo seu trabalho atual e futuros projetos.
+
+## Contribuição
+
+Se você estiver interessado em contribuir para o projeto ou tiver sugestões de melhorias, sinta-se à vontade para abrir uma "solicitação de pull request".
+
+## Licença
+
+Este projeto é fornecido sob a [licença MIT](LICENSE).
+
+---
+
+*Este é um projeto em constante evolução e aprimoramento.*
