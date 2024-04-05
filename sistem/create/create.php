@@ -19,6 +19,8 @@ require '../banco.php';
 //Acompanha os erros de validação
 // Processar so quando tenha uma chamada post
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $agora = date('d/m/Y H:i');
+    $update = $_SESSION['UsuarioNome'] . "-> Recebeu maquina " . $agora;
     $nomeErro = null;
     $telefoneErro = null;
     $emailErro = null;
@@ -50,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $equip = $_POST['equip'];
     $chapa = $_POST['chapa'];
     $chamado = $_POST['chamado'];
-    $recebe = $_SESSION['UsuarioNome'];
+    $recebe = $update;
     $solucao = $_POST['solucao'];
     $modelo = $_POST['modelo'];
     $ram = $_POST['ram'];

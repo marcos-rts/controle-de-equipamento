@@ -21,7 +21,7 @@ if (!isset($_SESSION['UsuarioID'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style_list_users.css">
     <title>Info Usuario</title>
 </head>
 
@@ -185,6 +185,7 @@ if (!isset($_SESSION['UsuarioID'])) {
                                     <td><?php echo $row['id'] ?></td>
                                     <td class="d-flex align-items-center">
                                         <div class="img" style="background-image: url(../images/vazio.png);"></div>
+                                        <!-- <div class="img" style="background-image: url(../images/icon<?php echo $row['id'] ?>.png);"></div> -->
                                         <div class="pl-3 email">
                                             <span><?php echo $row['email'] ?></span>
                                             <span><?php echo $row['cadastro'] ?></span>

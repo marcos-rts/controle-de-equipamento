@@ -24,7 +24,7 @@ if (mysqli_num_rows($query) != 1) {
     // Se a sessão não existir, inicia uma
       if (!isset($_SESSION)) session_start();
 
-      // Salva os dados encontrados na sessão
+      // // Salva os dados encontrados na sessão
       $_SESSION['UsuarioID'] = $resultado['id'];
       $_SESSION['UsuarioNome'] = $resultado['nome'];
       $_SESSION['UsuarioNivel'] = $resultado['nivel'];

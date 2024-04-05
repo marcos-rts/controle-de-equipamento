@@ -16,16 +16,19 @@ if (!isset($_SESSION['UsuarioID'])) {
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
 
+
     <title>Document</title>
 </head>
+
 <body>
-<header>
+    <header>
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="../index.php">Sistema de Controle de Maquinas</a>
@@ -86,9 +89,12 @@ if (!isset($_SESSION['UsuarioID'])) {
         </div>
     </header>
     <br>
-    
-    <div class="container">
-    <iframe src="https://calendar.google.com/calendar/embed?height=700&wkst=1&bgcolor=%23A79B8E&ctz=America%2FSao_Paulo&title=CALENDARIO%20DE%20REVEZAMENTO&showDate=1&showNav=1&showTabs=1&showCalendars=0&showTz=0&src=c3Vwb3J0ZS5jaWFncm9AZ21haWwuY29t&src=ZW4uYnJhemlsaWFuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23039BE5&color=%230B8043" style="border-width:0" width="900" height="700" frameborder="0" scrolling="no"></iframe>
+
+    <div class="container34">
+        <iframe
+            src="https://calendar.google.com/calendar/embed?height=700&wkst=1&bgcolor=%23A79B8E&ctz=America%2FSao_Paulo&title=CALENDARIO%20DE%20REVEZAMENTO&showDate=1&showNav=1&showTabs=1&showCalendars=0&showTz=0&src=c3Vwb3J0ZS5jaWFncm9AZ21haWwuY29t&src=ZW4uYnJhemlsaWFuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23039BE5&color=%230B8043"
+            style="border-width:0" width="900" height="700" frameborder="0" scrolling="no"></iframe>
     </div>
-    </body>
+</body>
+
 </html>

@@ -261,7 +261,7 @@ else
                     </div>
                     <div class="row">
                         <div class="form-group col-md-12">
-                            <label for="problema">Quem recebeu</label>
+                            <label for="problema">Atualizações</label>
                             <div class="controls form-control disabled">
                                 <label class="carousel-inner">
                                     <?php echo $data['recebe']; ?>
@@ -281,7 +281,7 @@ else
     </div>
     <footer>
         <div class="container">
-            <span class="badge badge-secondary">v 1.0.2 &copy; 2021 - Marcos A. R. T. dos Santos</span>
+            <span class="badge badge-secondary">v 3.0.0 &copy; 2021 - Marcos A. R. T. dos Santos</span>
 
 
 
